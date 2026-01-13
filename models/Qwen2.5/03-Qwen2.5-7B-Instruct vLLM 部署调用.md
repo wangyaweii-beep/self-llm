@@ -166,6 +166,10 @@ Prompt: '可以给我将一个有趣的童话故事吗？', Generated text: ' �
 ```bash
 python -m vllm.entrypoints.openai.api_server --model /root/autodl-tmp/qwen/Qwen2.5-7B-Instruct  --served-model-name Qwen2.5-7B-Instruct --max-model-len=2048
 ```
+```bash
+适配v100的启动方法：
+CUDA_VISIBLE_DEVICES=1 python -m vllm.entrypoints.openai.api_server --model /home/wyw/Qwen/model/qwen/Qwen2___5-7B-Instruct --served-model-name Qwen2.5-7B-Instruct --dtype half --max-model-len=512 --port 8848 --gpu-memory-utilization 0.6 --max-num-seqs 32 --guided-decoding-backend lm-format-enforcer
+```
 
 加载完毕后出现如下信息说明服务成功启动
 
